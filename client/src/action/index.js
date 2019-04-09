@@ -1,4 +1,4 @@
-import {SIGN_IN,SIGN_OUT} from '../'
+import {SIGN_IN,SIGN_OUT} from './type';
 
 export const signIn = () => {
     return{
