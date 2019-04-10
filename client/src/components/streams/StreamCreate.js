@@ -3,18 +3,30 @@ import {Field,reduxForm} from 'redux-form';
 
 class StreamCreate extends React.Component{
 
-    renderInput(){
-        return <div>input</div>
-    }
-    render(){
-        return(
-            <div>
-                <Field name="title" component={this.renderInput} />
-                <Field name="description" component={this.renderInput}/>
+    renderInput({input,label}){
+        return (
+            <div className="field">
+                <label>{label}</label>
+                <input {...input} autoComplete="off"/>
             </div>
         )
     }
+
+    onSubmit(formValues){
+        console.log(formValues);
+    }
+
+    render(){
+        return(
+           <form className="ui form" onSubmit={this.props.handleSubmit(this.onSubmit)}>
+               <Field name="title" component={this.renderInput} label="Enter the title"/>
+               <Field name="description" component={this.renderInput} label="Enter the description"/>
+               <button className="ui button primary">Submit</button>
+           </form>
+        )
+    }
 }
+
 
 export default reduxForm({
     form: 'streamCreate'
