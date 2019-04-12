@@ -6,7 +6,7 @@ import {
     CREATE_STREAM,
     FETCH_STREAM,
     FETCH_STREAMS,
-    UPDATE_STREAM,
+    EDIT_STREAM,
     DELETE_STREAM
 } from './type';
 
@@ -47,10 +47,11 @@ export const fetchStreams = () => async dispatch => {
     dispatch({type:FETCH_STREAMS,payload:response.data})
 };
 
-export const updateStream = (formValues,id) => async dispatch => {
-    const response = await streams.put(`/streams/${id}`,formValues);
+export const editStream = (id,formValues) => async dispatch => {
+    const response = await streams.patch(`/streams/${id}`,formValues);
 
-    dispatch({type:UPDATE_STREAM, payload:response.data})
+    dispatch({type:EDIT_STREAM, payload:response.data});
+    history.push('/');
 }
 
 export const deleteStream = (id) =>  async dispatch => {
