@@ -17,7 +17,8 @@ class StreamList extends React.Component{
                     <div className="content">
                     {stream.title}
                     </div>
-                    <div className="description">{stream.descripton}</div>
+                    <div className="description">{stream.description}</div>
+                    
                 </div>
             )
         })
