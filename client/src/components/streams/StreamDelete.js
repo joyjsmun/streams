@@ -1,11 +1,14 @@
 import React from 'react';
+import Modal from '../Modal';
 
-class StreamDelete extends React.Component{
-    render(){
+const StreamDelete = () => {
         return(
-            <div>StreamDelete</div>
+            <div>
+                StreamDelete
+                <Modal/>
+            </div>
         )
     }
-}
+
 
 export default StreamDelete;
